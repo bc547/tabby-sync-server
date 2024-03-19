@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tabby sync server</title>
+    <link rel="icon" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/primevue/resources/themes/aura-light-green/theme.css" />
+<!--    <link href="https://unpkg.com/primevue@3/resources/themes/saga-blue/theme.css" rel="stylesheet"/>-->
+    <link href="https://unpkg.com/primevue@3/resources/primevue.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/primeflex@3/primeflex.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 1024px;
+        }
+        .hide {
+            display: none;
+        }
+        .border {
+            outline: dashed 1px black;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/primevue/core/core.min.js"></script>
+    <script src="https://unpkg.com/primevue/tabmenu/tabmenu.min.js"></script>
+    <script src="https://unpkg.com/primevue/inlinemessage/inlinemessage.min.js"></script>
+    <script src="https://unpkg.com/primevue/divider/divider.min.js"></script>
+    <script src="https://unpkg.com/primevue/datatable/datatable.min.js"></script>
+    <script src="https://unpkg.com/primevue/column/column.min.js"></script>
+    <script src="https://unpkg.com/primevue/confirmdialog/confirmdialog.min.js"></script>
+    <script src="https://unpkg.com/primevue/useconfirm/useconfirm.min.js"></script>
+    <script src="https://unpkg.com/primevue/confirmationservice/confirmationservice.min.js"></script>
+    <script src="https://unpkg.com/primevue/toast/toast.min.js"></script>
+    <script src="https://unpkg.com/primevue/toastservice/toastservice.min.js"></script>
+    <script src="https://unpkg.com/primevue/tag/tag.min.js"></script>
+</head>
+
+<body>
+
+<div id="app">
+</div>
+
+<script type="module">
+    import app from '/admin/app.js'
+
+    const {createApp} = Vue;
+    const myapp = createApp(app);
+
+    myapp.use(primevue.config.default);
+
+    // Needed for confirmdialog
+    const ConfirmationService = primevue.confirmationservice
+    myapp.use(ConfirmationService);
+
+    // Needed for toast
+    const ToastService = primevue.toastservice
+    myapp.use(ToastService);
+
+    myapp.component('Button', primevue.button);
+    myapp.component('TabMenu', primevue.tabmenu);
+    myapp.component('InputText', primevue.inputtext);
+    myapp.component('InlineMessage', primevue.inlinemessage);
+    myapp.component('Divider', primevue.divider);
+    myapp.component('DataTable', primevue.datatable);
+    myapp.component('Column', primevue.column);
+    myapp.component('ConfirmDialog', primevue.confirmdialog);
+    myapp.component('useConfirm', primevue.useconfirm);
+    myapp.component('Toast', primevue.toast);
+    myapp.component('useToast', primevue.usetoast);
+    myapp.component('Dialog', primevue.dialog);
+    myapp.component('Tag', primevue.tag);
+
+    myapp.mount('#app');
+</script>
+
+</body>
+</html>

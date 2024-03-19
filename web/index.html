@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tabby sync server</title>
+    <link rel="icon" href="/favicon.png">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/primevue/resources/themes/lara-light-green/theme.css"/>
+    <link href="https://unpkg.com/primevue@3/resources/primevue.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/primeflex@3/primeflex.min.css" rel="stylesheet"/>
+    <link href="https://unpkg.com/primeicons/primeicons.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #cccccc;
+            margin: 0 auto;
+            width: 80%;
+            max-width: 1024px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .border {
+            outline: dashed 1px black;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="https://unpkg.com/primevue/core/core.min.js"></script>
+    <script src="https://unpkg.com/primevue/card/card.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <Card class="my-8">
+        <template #title>Tabby-sync-server</template>
+        <template #content>
+            <div>Small and simple configuration synchronization server for <a href="https://tabby.sh/">Tabby</a> with support for multiple users
+                (synctokens) and Tabby configs
+            </div>
+
+            <div class="mt-4">
+                For more information see <a href="https://github.com/bc547/tabby-sync-server">https://github.com/bc547/tabby-sync-server</a>
+            </div>
+
+            <div class="text-lg mt-4">Server info:</div>
+            <div class="mx-4">
+                <table>
+                    <tr>
+                        <td>Version</td>
+                        <td>: {{info.Version}}</td>
+                    </tr>
+                    <tr>
+                        <td>RepoUrl</td>
+                        <td>: {{info.RepoUrl}}</td>
+                    </tr>
+                    <tr>
+                        <td>ShaCommit</td>
+                        <td>: {{info.ShaCommit}}</td>
+                    </tr>
+                    <tr>
+                        <td>BuildTime</td>
+                        <td>: {{info.BuildTime}}</td>
+                    </tr>
+                </table>
+            </div>
+        </template>
+    </Card>
+
+</div>
+
+<script>
+    const {createApp, ref} = Vue;
+
+    const app = createApp({
+        setup() {
+            const info = ref({
+                Version: "",
+                Repo: "",
+                Sha: "",
+                BuildTime: ""
+            })
+
+            fetch('/health')
+                .then(response => response.json())
+                .then(data => info.value = data)
+                .catch(error => console.error('Error:', error));
+
+            return {
+                info
+            };
+        },
+    });
+
+    app.use(primevue.config.default);
+    app.component('Card', primevue.card);
+
+    app.mount('#app');
+</script>
+</body>
+</html>
