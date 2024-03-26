@@ -1,14 +1,17 @@
 # tabby-sync-server
 
 Small and simple configuration synchronization server for Tabby with support for multiple users (synctokens) and Tabby
-configs
+configs. It includes a built-in admin website to manage the synctokens.
+
+<kbd>![](./docs/media/adminpage.png)</kbd>
 
 ### Some features
 
 * Runs as a single container (or executable)
-* Build-in database that requires no extra setup or configuration (bbolt db)
-* Built-in admin portal website (can be easily completely disabled for extra security)
-  ![](docs\media\adminpage.png)
+* Built-in admin portal website
+  * Requires an admin token to view/create/delete syntokens
+  * Can easily be completely disabled for extra security
+* Built-in database that requires no extra setup or configuration (bbolt db)
 * Very simple configuration
   * Generate admin token for accessing the admin API (environment variable)
   * Generate .Tabby synctokens via built-in admin portal (a few mouse clicks)
@@ -41,7 +44,7 @@ below for a more secure way with a frontend proxy.**
 
 
 * Click on "Create Sync Token" and copy the generated information.
-  ![](docs\media\createpopup.png)
+  <kbd>![](docs/media/createpopup.png)</kbd>
 
 ### Configure Tabby
 
