@@ -14,14 +14,21 @@
     <style>
         body {
             margin: 0 auto;
-            width: 80%;
-            max-width: 1024px;
+            background-color: #cccccc;
         }
         .hide {
             display: none;
         }
         .border {
             outline: dashed 1px black;
+        }
+        .mainapp {
+            margin: auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 1024px;
+            min-height: 100vh;
+            background-color: #FFFFFF;
         }
     </style>
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
@@ -41,7 +48,7 @@
 
 <body>
 
-<div id="app">
+<div id="app" class="mainapp">
 </div>
 
 <script type="module">
