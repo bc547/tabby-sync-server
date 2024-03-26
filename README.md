@@ -7,7 +7,8 @@ configs
 
 * Runs as a single container (or executable)
 * Build-in database that requires no extra setup or configuration (bbolt db)
-* Built-in admin portal website (can be easily completely disabled for extra security) 
+* Built-in admin portal website (can be easily completely disabled for extra security)
+  ![](docs\media\adminpage.png)
 * Very simple configuration
   * Generate admin token for accessing the admin API (environment variable)
   * Generate .Tabby synctokens via built-in admin portal (a few mouse clicks)
@@ -40,6 +41,7 @@ below for a more secure way with a frontend proxy.**
 
 
 * Click on "Create Sync Token" and copy the generated information.
+  ![](docs\media\createpopup.png)
 
 ### Configure Tabby
 
