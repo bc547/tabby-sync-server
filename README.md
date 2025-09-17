@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> The included web interface is broken due to changes to the CDN that hosted the javascript libraries. Fixing this properly would require implementing the frontend website again. I currently don't have the time to implement this again :-(
+>
+> Even tough the frontend website is broken, the admin API calls mentioned in the README (https://github.com/bc547/tabby-sync-server?tab=readme-ov-file#admin-api-overview) still work. 
+> 
+> This repo is now archived to make clear this code is not really maintained anymore at this moment.
+
 # tabby-sync-server
 
 Small and simple configuration synchronization server for Tabby with support for multiple users (synctokens) and Tabby
